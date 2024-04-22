@@ -337,7 +337,7 @@ namespace picosha3 {
     template <size_t d_bits>
     auto get_sha3_generator() {
         static_assert(
-          d_bits == 224 or d_bits == 256 or d_bits == 384 or d_bits == 512,
+          d_bits == 224 || d_bits == 256 || d_bits == 384 || d_bits == 512,
           "SHA3 only accepts digest message length 224, 256 384 or 512 bits.");
         constexpr auto d_bytes = bits_to_bytes(d_bits);
         constexpr auto capacity_bytes = d_bytes * 2;
