@@ -162,6 +162,8 @@ if exist "%CONFIG%" (
     )
     echo * Starting mining command.
     call :start_mining "%threads%"
+    timeout /t 60
+    goto main_loop
 ) else (
     echo * Mine settings file '%CONFIG%' doesn't exist.
     echo * Proceeding with setup.
@@ -211,6 +213,8 @@ if exist "%CONFIG%" (
             set "STRATUM=!STRATUM! !stratum_result!"
         )
         call :start_mining "%threads%"
+        timeout /t 60
+        goto main_loop
     ) else if /I "!mine!"=="no" (
         exit /b 0
     ) else (
@@ -218,7 +222,5 @@ if exist "%CONFIG%" (
         goto start_mining_prompt
     )
 )
-timeout /t 60
-goto main_loop
 
 endlocal

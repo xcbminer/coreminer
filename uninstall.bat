@@ -10,7 +10,7 @@ if not exist "%SHORTCUT_PATH%" (
 )
 
 :: Prompt user for confirmation
-echo Do you want to delete the shortcut to mine.bat in the Startup folder? [yes/no] 
+echo Do you want to delete the shortcut of mine.bat in the Startup folder? [yes/no] 
 set /p USER_CONFIRM=
 if /i not "%USER_CONFIRM%"=="yes" (
     echo Deletion cancelled by user.

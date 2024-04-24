@@ -11,7 +11,7 @@ if exist "%SHORTCUT_PATH%" (
 )
 
 :: Prompt user for confirmation
-echo Do you want to create a shortcut to mine.bat in the Startup folder? [yes/no] 
+echo Do you want to create a shortcut of mine.bat in the Startup folder? [yes/no] 
 set /p USER_CONFIRM=
 if /i not "%USER_CONFIRM%"=="yes" (
     echo Shortcut creation cancelled by user.
@@ -19,7 +19,7 @@ if /i not "%USER_CONFIRM%"=="yes" (
 )
 
 :: Create shortcuts by using PowerShell
-echo Creating shortcut to mine.bat in Startup folder...
+echo Creating shortcut of mine.bat in Startup folder...
 powershell -Command "$WshShell = New-Object -ComObject WScript.Shell; $Shortcut = $WshShell.CreateShortcut('%SHORTCUT_PATH%'); $Shortcut.TargetPath = '%BAT_PATH%'; $Shortcut.WorkingDirectory = '%~dp0'; $Shortcut.Save()"
 
 :: Check whether the shortcut is created successfully
